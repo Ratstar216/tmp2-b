@@ -136,7 +136,7 @@ func createTweet(w http.ResponseWriter, r *http.Request) {
 	tweet.Likes = 0
 	now := time.Now()
 	fmt.Println("tweet.Content", tweet.Content)
-	tweet.Content = tweet.Content + gemini.Translate(tweet.Content)
+	tweet.Content = gemini.Translate(tweet.Content)
 	fmt.Println("tweet.Content", tweet.Content)
 
 	// 時刻を文字列に変換（フォーマット指定）

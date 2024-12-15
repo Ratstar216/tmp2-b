@@ -24,7 +24,7 @@ func Translate(content string) string {
 
 	// プロンプトを作成（信頼度スコアの取得）
 	prompt := genai.Text(fmt.Sprintf(
-		`次のツイートを英語に訳してください。 %s`,
+		`次のツイートを「にゃ]を使って猫っぽくしてください。 %s`,
 		content))
 
 	// Gemini APIを呼び出す
