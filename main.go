@@ -35,7 +35,7 @@ func main() {
 	DB_PASS := os.Getenv("MYSQL_PASSWORD")
 	DB_NAME := os.Getenv("MYSQL_DATABASE")
 	DB_HOST := os.Getenv("MYSQL_HOST")
-	dbPort := "8080"
+	dbPort := "3306"
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", DB_USER, DB_PASS, DB_HOST, dbPort, DB_NAME)
 	_db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
