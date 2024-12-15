@@ -61,7 +61,7 @@ func main() {
 	r.HandleFunc("/tweets/{id}/like", likeTweet).Methods("POST")
 
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"}, // Allow requests from your frontend origin
+		AllowedOrigins:   []string{"*"}, // Allow requests from your frontend origin
 		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
 		AllowedHeaders:   []string{"*"},
 		AllowCredentials: true,
