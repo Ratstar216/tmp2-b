@@ -15,7 +15,6 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 	"github.com/oklog/ulid/v2"
 	"gorm.io/driver/mysql" // Or your preferred database driver
 	"gorm.io/gorm"
@@ -26,10 +25,11 @@ var db *gorm.DB
 func main() {
 	// Database setup (using SQLite for this example)
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// err := godotenv.Load()
+	// err := ""
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file")
+	// }
 
 	DB_USER := os.Getenv("MYSQL_USER")
 	DB_PASS := os.Getenv("MYSQL_PASSWORD")
@@ -38,10 +38,11 @@ func main() {
 	dbPort := "3306"
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", DB_USER, DB_PASS, DB_HOST, dbPort, DB_NAME)
-	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	_db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
+	db = _db
 
 	// Migrate the schema
 	// db.AutoMigrate(&models.Tweet{}, &models.User{})
